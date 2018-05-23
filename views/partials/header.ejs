@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yelp Soccer Stadiums</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<script src="https://cdn.auth0.com/js/auth0/9.5.1/auth0.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/soccer_stadiums">Yelp Soccer</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse  justify-content-end navbar-collapse" id="navbarTogglerDemo01">
+		    <ul class="navbar-nav  navbar-right">
+		    	<% if(!currentUser) {%>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="/register">Sign Up</a>
+		      </li>
+		      <%} else{%>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Singed in as <strong><%=currentUser%></strong></a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="/logout">Logout</a>
+		      </li>
+		      <%}%>
+		    </ul>
+		  </div>
+	</nav>
+	
+	<div class="container">
+		<%if(error && error.length>0){%>
+			<div class="alert alert-danger" role="alert">
+			  <%= error %>
+			</div>
+		<%}%>
+		<%if(success && success.length > 0){%>
+			<div class="alert alert-success" role="alert">
+				<%=success%>
+			</div>
+		<%}%>
+		  
+	</div>

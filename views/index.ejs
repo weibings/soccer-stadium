@@ -1,0 +1,30 @@
+<% include ./partials/header.ejs %>
+	<div class="container" style="margin: 20px auto">
+		<header class="jumbotron">
+			<div class="container">
+				<h1>Welcome To Yelp Soccer Stadium!</h1>
+				<p>View our hand-picked soccer stadiums from all over the world.</p>
+				<a class="btn btn-primary btn-lg" href="/soccer_stadiums/new" style="margin-top: 20px">Add New Stadium</a>
+			</div>
+		</header>
+		
+	
+		<div class="card-deck">
+			<%stadiums.forEach(function(stadium) {%>
+			<div class="card">
+				<div style="margin: 0px auto">
+					<img src="<%= stadium.image%>" class="card-img-top" style="height: 100%">
+					<div class="card-body">
+						<h4 class="card-title text-center"><%= stadium.name %></h4>
+						<div class="card-text text-center">
+							<a href="/soccer_stadiums/<%= stadium.ID%>" class="btn btn-sm btn-outline-primary img-button">More Info</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% })%>
+		</div>
+	</div>
+	
+
+<% include ./partials/footer.ejs %>

@@ -1,0 +1,49 @@
+.img-thumbnail {
+	width: 100%;
+	padding: 0;
+}
+
+.info-list {
+	margin:20px auto;
+}
+
+.comments {
+	margin: 10px;
+	text-align: justify;
+	background-color: #f6f6f6;
+}
+
+.description {
+	text-align: justify;
+}
+
+
+
+.figure-caption {
+	color: blueviolet;
+	font-size: 1.5em;
+}
+
+.stadium_image {
+	border: 1px gray solid;
+}
+
+.img-button {
+	vertical-align: bottom;
+}
+
+#deleteForm {
+	display: inline;
+}
+
+#commentDeleteForm {
+	display: inline;
+}
+
+.card {
+	margin:20px 0 0 0;
+}
+
+iframe {
+	margin-top: 3vh;
+}
