@@ -1,6 +1,8 @@
 {
-  "name": "",
-  "version": "",
+  "name": "soccer_stadium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
   "dependencies": {
     "bcrypt": "^2.0.1",
     "bcryptjs": "^2.4.3",
@@ -8,12 +10,13 @@
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.6.1",
-    "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "express": "^4.16.3",
     "jsonwebtoken": "^8.2.1",
     "method-override": "^2.3.10",
     "mysql": "^2.15.0",
   },
+  "devDependencies": {},
   "scripts": {
     "start": "node app.js",
     "test": "export NODE_ENV=test || SET NODE_ENV=test && mocha server/**/*.test.js",
@@ -21,4 +24,14 @@
   "engines": {
     "node": "9.11.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weibings/soccer-stadium.git"
+  },
+  "author": "bin wei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weibings/soccer-stadium/issues"
+  },
+  "homepage": "https://github.com/weibings/soccer-stadium#readme"
 }
