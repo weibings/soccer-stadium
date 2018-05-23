@@ -40,12 +40,15 @@ app.use(methodOverride("_method"));
 app.use(function(req, res, next){
 	res.locals.error = req.flash("error");
 	res.locals.success = req.flash("success");
+	console.log("hello");
 	let token = req.cookies.auth;
 	if(!token) {
+		console.log("hi");
 		res.locals.currentUser = '';
 		return next();
 	}
 	try{
+		console.log("haha");
      	let decoded = jwt.verify(token, process.env.JWT_SECRET);
 	  	res.locals.currentUser = decoded.username;
 	}catch(e){
