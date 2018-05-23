@@ -13,7 +13,7 @@ function generateAuthToken(username) {
 };
 
 function findByCredential(username, password, callback){
-	connection.query("select * from stadiums.users where name = ?",[username], function(err, result) {
+	connection.query("select * from users where name = ?",[username], function(err, result) {
 		if (err) {
 			console.log(err);
 		}else{
@@ -35,7 +35,7 @@ function authenticate(req, res, next) {
   }catch(e){
   	return console.log(e);
   }
-  connection.query("select * from stadiums.users where name=?", [decoded.username], function(err, result){
+  connection.query("select * from users where name=?", [decoded.username], function(err, result){
   	if(err) {
   		return console.log(err);
   	}
@@ -58,7 +58,7 @@ function authenticate(req, res, next) {
 function checkStadiumOwnerShip(req, res, next) {
 	let user = res.locals.currentUser;
 	let id = req.params.id;
-	connection.query("select * from stadiums.images where ID= ?", id, function(err, result) {
+	connection.query("select * from images where ID= ?", id, function(err, result) {
 		if(err) {
 			req.flash("error", "Stadium not found");
 			res.redirect("back")
@@ -75,7 +75,7 @@ function checkStadiumOwnerShip(req, res, next) {
 function checkCommentOwnerShip(req, res, next) {
 	let user = res.locals.currentUser;
 	let id = req.params.comment_id;
-	connection.query("select * from stadiums.comments where ID= ?", id, function(err, result) {
+	connection.query("select * from comments where ID= ?", id, function(err, result) {
 		if(err) {
 			eq.flash("error", "Comment not found");
 			res.redirect("back")

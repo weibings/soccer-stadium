@@ -1,10 +1,17 @@
 const mysql = require('mysql');
+require('../config/config.js');
+
+console.log(process.env.user);
+console.log(process.env.password);
+console.log(process.env.host);
+
+
 
 let connection = mysql.createConnection({
 	host: process.env.host,
 	user: process.env.user,
 	password: process.env.password,
-	//database:'stadiums'
+	database:process.env.database
 });
 
 connection.connect((err) =>{
@@ -19,7 +26,7 @@ connection.connect((err) =>{
 	    	console.log(err);
 	    }
 
-	    let createTable = 'CREATE TABLE IF NOT EXISTS stadiums.images(ID int NOT NULL AUTO_INCREMENT, name VARCHAR(255) NOT NULL, price FLOAT NOT NULL, image VARCHAR(500) NOT NULL, description VARCHAR(1000) NOT NULL, location VARCHAR(200) NOT NULL, author VARCHAR(255) NOT NULL, PRIMARY KEY(ID))';
+	    let createTable = 'CREATE TABLE IF NOT EXISTS images(ID int NOT NULL AUTO_INCREMENT, name VARCHAR(255) NOT NULL, price FLOAT NOT NULL, image VARCHAR(500) NOT NULL, description VARCHAR(1000) NOT NULL, location VARCHAR(200) NOT NULL, author VARCHAR(255) NOT NULL, PRIMARY KEY(ID))';
 	    connection.query(createTable, function(err) {
 	    		if(err) {
 	    			console.log(err);
@@ -28,7 +35,7 @@ connection.connect((err) =>{
 	    		}
 	    	});
 
-	    createTable = 'CREATE TABLE IF NOT EXISTS stadiums.comments(ID int NOT NULL AUTO_INCREMENT, author VARCHAR(255) NOT NULL, text VARCHAR(5000) NOT NULL, img_ID int not null, PRIMARY KEY(ID))';
+	    createTable = 'CREATE TABLE IF NOT EXISTS comments(ID int NOT NULL AUTO_INCREMENT, author VARCHAR(255) NOT NULL, text VARCHAR(5000) NOT NULL, img_ID int not null, PRIMARY KEY(ID))';
 	    connection.query(createTable, function(err) {
 	    		if(err) {
 	    			console.log(err);
@@ -37,7 +44,7 @@ connection.connect((err) =>{
 	    		}
 	    	});
 
-	    createTable = 'CREATE TABLE IF NOT EXISTS stadiums.users(name VARCHAR(255) NOT NULL, password VARCHAR(5000) NOT NULL, PRIMARY KEY(name))';
+	    createTable = 'CREATE TABLE IF NOT EXISTS users(name VARCHAR(255) NOT NULL, password VARCHAR(5000) NOT NULL, PRIMARY KEY(name))';
 	    connection.query(createTable, function(err) {
 	    		if(err) {
 	    			console.log(err);

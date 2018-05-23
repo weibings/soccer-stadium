@@ -9,7 +9,7 @@ let router = express.Router();
 router.get("/soccer_stadiums/:id/comments/new", authenticate, function(req, res) {
 	let id = req.params.id;
 	console.log(id);
-	let sql = "select * from stadiums.images where ID = ?";
+	let sql = "select * from images where ID = ?";
 
 	connection.query(sql, id, function(err, result, fields) {
 		if (err) {
@@ -22,7 +22,7 @@ router.get("/soccer_stadiums/:id/comments/new", authenticate, function(req, res)
 
 router.post("/soccer_stadiums/:id/comments", authenticate, function(req, res) {
 	let id = req.params.id;
-	let sql = "insert into stadiums.comments(author, text, img_ID) values(?, ?, ?)";
+	let sql = "insert into comments(author, text, img_ID) values(?, ?, ?)";
 	connection.query(sql, [res.locals.currentUser, req.body.comment.text, id], function(err, result, fields) {
 		if(err) {
 			console.log(err);
@@ -42,7 +42,7 @@ router.get("/soccer_stadiums/:id/comments/:comment_id/edit", checkCommentOwnerSh
 	let id = req.params.id;
 	let comment_id = req.params.comment_id;
 
-	let sql = "select * from stadiums.comments where ID = ?";
+	let sql = "select * from comments where ID = ?";
 
 	connection.query(sql, [comment_id], function(err, result, fields) {
 		if (err) {
@@ -59,7 +59,7 @@ router.put("/soccer_stadiums/:id/comments/:comment_id", checkCommentOwnerShip, f
 	let id = req.params.id;
 	let comment_id = req.params.comment_id;
 
-	let sql = "update stadiums.comments set text=? where ID = ?";
+	let sql = "update comments set text=? where ID = ?";
 
 	connection.query(sql, [req.body.comment.text, comment_id], function(err, result, fields) {
 		if (err) {
@@ -74,7 +74,7 @@ router.put("/soccer_stadiums/:id/comments/:comment_id", checkCommentOwnerShip, f
 //delete
 router.delete("/soccer_stadiums/:id/comments/:comment_id", checkCommentOwnerShip, function(req, res){
 	let id = req.params.comment_id;
-	let sql = "delete from stadiums.comments where ID = ?";
+	let sql = "delete from comments where ID = ?";
 
 	connection.query(sql, [id], function(err, result, fields) {
 		if (err) {

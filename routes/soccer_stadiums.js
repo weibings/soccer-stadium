@@ -9,7 +9,7 @@ let router = express.Router();
 
 router.get("/soccer_stadiums", function(req, res) {
 
-	connection.query("select * from stadiums.images", function(err, result, fields) {
+	connection.query("select * from images", function(err, result, fields) {
 		if (err) {
 			return console.log(err);
 		}
@@ -26,7 +26,7 @@ router.post("/soccer_stadiums", authenticate, function(req, res){
 	let location = req.body.location;
 	console.log(image);
 
-	let sql = "INSERT INTO stadiums.images(name, price, image, description, location, author) VALUES (?, ?, ?, ?, ?, ?)";
+	let sql = "INSERT INTO images(name, price, image, description, location, author) VALUES (?, ?, ?, ?, ?, ?)";
 	connection.query(sql, [name, price, image, description, location, res.locals.currentUser], function(err) {
 		if(err) {
 			req.flash("error", err);
@@ -52,7 +52,7 @@ router.get("/soccer_stadiums/new", authenticate, function(req, res){
 router.get("/soccer_stadiums/:id", function(req, res) {
 	let id = req.params.id;
 
-	let sql = "select * from stadiums.images where ID = " + id;
+	let sql = "select * from images where ID = " + id;
 
 	connection.query(sql, function(err, result, fields) {
 		if (err) {
@@ -60,7 +60,7 @@ router.get("/soccer_stadiums/:id", function(req, res) {
 			return console.log(err);
 		}
 		//console.log(result[0]);
-		sql = "select ID, author, text, img_ID from stadiums.comments where img_ID = "+id;
+		sql = "select ID, author, text, img_ID from comments where img_ID = "+id;
 		connection.query(sql, function(err2, result2, fields2) {
 			if(err2) {
 				return console.log(err2);
@@ -75,7 +75,7 @@ router.get("/soccer_stadiums/:id", function(req, res) {
 router.get("/soccer_stadiums/:id/edit", checkStadiumOwnerShip, function(req, res){
 	let id = req.params.id;
 
-	let sql = "select * from stadiums.images where ID = " + id;
+	let sql = "select * from images where ID = " + id;
 
 	connection.query(sql, function(err, result, fields) {
 		if (err) {
@@ -89,7 +89,7 @@ router.get("/soccer_stadiums/:id/edit", checkStadiumOwnerShip, function(req, res
 //update
 router.put("/soccer_stadiums/:id", checkStadiumOwnerShip, function(req, res){
 	let id = req.params.id;
-	let sql = "update stadiums.images set name=?,price=?, image=?,description=?, location=? where ID = ?";
+	let sql = "update images set name=?,price=?, image=?,description=?, location=? where ID = ?";
 
 	connection.query(sql, [req.body.stadium.name, req.body.stadium.price, req.body.stadium.image, req.body.stadium.description, req.body.stadium.location, id], function(err, result, fields) {
 		if (err) {
@@ -106,7 +106,7 @@ router.put("/soccer_stadiums/:id", checkStadiumOwnerShip, function(req, res){
 //delete
 router.delete("/soccer_stadiums/:id", checkStadiumOwnerShip, function(req, res){
 	let id = req.params.id;
-	let sql = "delete from stadiums.images where ID = ?";
+	let sql = "delete from images where ID = ?";
 
 	connection.query(sql, [id], function(err, result, fields) {
 		if (err) {

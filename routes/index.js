@@ -33,7 +33,7 @@ router.post("/register", function(req, res){
 				password = hash;
 				console.log(password);
 				
-				connection.query("insert into stadiums.users(name, password) values(?, ?)", [username, password], function(err) {
+				connection.query("insert into users(name, password) values(?, ?)", [username, password], function(err) {
 					if(err) {
 						console.log(err);
 						req.flash("error", "Username already exists, please choose another username!")
