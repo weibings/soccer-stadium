@@ -14,11 +14,11 @@
     "express": "^4.16.3",
     "jsonwebtoken": "^8.2.1",
     "method-override": "^2.3.10",
-    "mysql": "^2.15.0",
+    "mysql": "^2.15.0"
   },
   "scripts": {
     "start": "node app.js",
-    "test": "export NODE_ENV=test || SET NODE_ENV=test && mocha server/**/*.test.js",
+    "test": "export NODE_ENV=test || SET NODE_ENV=test && mocha server/**/*.test.js"
   },
   "engines": {
     "node": "9.11.1"
