@@ -22,7 +22,7 @@ connection.connect((err) =>{
 	}
 	console.log('connected as id '+ connection.threadId);
 
-	connection.query(`CREATE DATABASE IF NOT EXISTS $process.env.database`, function (err) {
+	connection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.database}`, function (err) {
 	    if (err) {
 	    	console.log(err);
 	    }
