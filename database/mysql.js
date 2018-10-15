@@ -9,9 +9,9 @@ console.log(process.env.database);
 
 
 let connection = mysql.createConnection({
-	host: "be21dea017095a",//process.env.host,
-	user: "aaf0553a",//process.env.user,
-	password: "us-cdbr-iron-east-01.cleardb.net",//process.env.password,
+	host: "us-cdbr-iron-east-01.cleardb.net",//process.env.host,
+	user: "be21dea017095a",//process.env.user,
+	password: "aaf0553a",//process.env.password,
 	database:"heroku_a0714c871127d32"//process.env.database
 });
 
