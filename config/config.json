@@ -1,6 +1,5 @@
 {
   "production": {
-    "PORT": 3306,
     "user":"b43379685d9db9",
     "password":"68107a4d",
     "JWT_SECRET": "RT78Y9JIONBH",

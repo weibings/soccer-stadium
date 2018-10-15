@@ -16,7 +16,7 @@ require('./config/config.js');
 //const seedDB = require("./seeds.js");
 
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 let app = express();
 let sessionStore = new session.MemoryStore;
 
