@@ -73,7 +73,9 @@ router.post("/login", function(req, res) {
 	let password = req.body.password;
 	console.log(user);
 	findByCredential(user, password, function(result){
+		console.log("password: "+password)
 		if (result && result.length > 0) {
+			console.log("result: "+result);
 			let token = generateAuthToken(result[0].name);
 			if (token){
 				res.header('x-auth', token);

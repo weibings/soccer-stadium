@@ -17,7 +17,28 @@ function findByCredential(username, password, callback){
 		if (err) {
 			console.log(err);
 		}else{
-			callback(result);
+      // res.locals.name = result[0].name;
+      // res.locals.type = result[0].type;
+      console.log(username);
+      console.log(password);
+      if(result && result.length > 0){
+        console.log(result[0].password);
+          bcrypt.compare(password, result[0].password, (err2, res2)=>{
+          if(err2){
+            return console.log(err2);
+          }else{
+          	console.log("res2: "+res2)
+          	if(res2) {
+          		callback(result);
+          	}else{
+          		callback();
+          	}
+            
+          }
+          
+        });
+        }
+			
 			}
 	    });
 }
