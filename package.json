@@ -21,6 +21,7 @@
     "test": "export NODE_ENV=test || SET NODE_ENV=test && mocha server/**/*.test.js"
   },
   "engines": {
+    "node": "8.12.0"
   },
   "repository": {
     "type": "git",
