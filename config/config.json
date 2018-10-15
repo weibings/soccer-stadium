@@ -1,4 +1,12 @@
 {
+  "production": {
+    "PORT": 3000,
+    "user":"b43379685d9db9",
+    "password":"68107a4d",
+    "JWT_SECRET": "RT78Y9JIONBH",
+    "host":"us-cdbr-iron-east-01.cleardb.net",
+    "database":"heroku_8f32ebbedbab29d"
+  },
   "test": {
     "PORT": 3000,
     "user":"root",
@@ -14,14 +22,6 @@
     "JWT_SECRET": "RT78Y9JIONBH",
     "host":"localhost",
     "database":"stadiums"
-  },
-  "production": {
-    "PORT": 3000,
-    "user":"b43379685d9db9",
-    "password":"68107a4d",
-    "JWT_SECRET": "RT78Y9JIONBH",
-    "host":"us-cdbr-iron-east-01.cleardb.net",
-    "database":"heroku_8f32ebbedbab29d"
   }
 }
 

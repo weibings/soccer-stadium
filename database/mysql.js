@@ -4,14 +4,19 @@ require('../config/config.js');
 console.log(process.env.user);
 console.log(process.env.password);
 console.log(process.env.host);
+console.log(process.env.database);
 
 
 
 let connection = mysql.createConnection({
-	host: process.env.host,
-	user: process.env.user,
-	password: process.env.password,
-	database:process.env.database
+	// host: process.env.host,
+	// user: process.env.user,
+	// password: process.env.password,
+	// database:process.env.database
+	user:"b43379685d9db9",
+    password:"68107a4d",
+    host:"us-cdbr-iron-east-01.cleardb.net",
+    database:"heroku_8f32ebbedbab29d"
 });
 
 connection.connect((err) =>{
@@ -21,7 +26,7 @@ connection.connect((err) =>{
 	}
 	console.log('connected as id '+ connection.threadId);
 
-	connection.query('CREATE DATABASE IF NOT EXISTS stadiums', function (err) {
+	connection.query(`CREATE DATABASE IF NOT EXISTS heroku_8f32ebbedbab29d`, function (err) {
 	    if (err) {
 	    	console.log(err);
 	    }
