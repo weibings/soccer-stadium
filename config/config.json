@@ -1,10 +1,10 @@
 {
   "production": {
-    "user":"b43379685d9db9",
-    "password":"68107a4d",
+    "user":"be21dea017095a",
+    "password":"aaf0553a",
     "JWT_SECRET": "RT78Y9JIONBH",
     "host":"us-cdbr-iron-east-01.cleardb.net",
-    "database":"heroku_8f32ebbedbab29d"
+    "database":"heroku_a0714c871127d32"
   },
   "test": {
     "PORT": 3000,

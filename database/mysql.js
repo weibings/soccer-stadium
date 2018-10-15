@@ -9,10 +9,10 @@ console.log(process.env.database);
 
 
 let connection = mysql.createConnection({
-	host: process.env.host,
-	user: process.env.user,
-	password: process.env.password,
-	database:process.env.database
+	host: "be21dea017095a",//process.env.host,
+	user: "aaf0553a",//process.env.user,
+	password: "us-cdbr-iron-east-01.cleardb.net",//process.env.password,
+	database:"heroku_a0714c871127d32"//process.env.database
 });
 
 connection.connect((err) =>{
@@ -22,7 +22,7 @@ connection.connect((err) =>{
 	}
 	console.log('connected as id '+ connection.threadId);
 
-	connection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.database}`, function (err) {
+	connection.query(`CREATE DATABASE IF NOT EXISTS heroku_a0714c871127d32`, function (err) {
 	    if (err) {
 	    	console.log(err);
 	    }
