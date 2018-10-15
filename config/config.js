@@ -1,6 +1,6 @@
-let env = 'production' || process.env.NODE_ENV;
+let env = 'development' || process.env.NODE_ENV;
 
-if (env === 'production') {
+if (env === 'production' || 'development') {
   let config = require('./config.json');
   let envConfig = config[env];
   Object.keys(envConfig).forEach((key) => {
